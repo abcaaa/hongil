@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Config Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings useStatementNamespaces="true" />
+
+	<typeHandler
+		callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" jdbcType="CLOB" javaType="java.lang.String" />
+
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="org.hsqldb.jdbcDriver" />
+			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:db" />
+			<property name="JDBC.Username" value="camping" />
+			<property name="JDBC.Password" value="1234" />
+		</dataSource>
+	</transactionManager>
+	
+	<sqlMap resource="sqlmap/account.xml" />
+
+</sqlMapConfig>
+
